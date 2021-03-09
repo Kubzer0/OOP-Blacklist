@@ -7,27 +7,24 @@ class BlacklistedIndividual{
 }
 
 
-class TopMenu{
+class Blacklist{
   constructor() {
   }
 
-  renderTopMenu(){
+  renderTopMenu(buttonText){
     const addButton = document.createElement("BUTTON")
-    addButton.innerHTML= "Dodaj do blacklisty"
+    addButton.innerHTML= `${buttonText} `
     document.body.appendChild(addButton)
 
     const blacklistInput = document.createElement("INPUT")
     document.body.appendChild(blacklistInput)
   }
-
-  render(){
-    this.renderTopMenu()
-  }
-
 }
 
-let topMenu1 = new TopMenu()
-topMenu1.render()
+
+let blacklist1 = new Blacklist()
+blacklist1.renderTopMenu("Add to blacklist")
+
 
 
 
