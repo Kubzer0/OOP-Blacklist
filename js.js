@@ -9,6 +9,7 @@ class BlacklistedIndividual{
 
 class Blacklist{
   constructor() {
+    this.blacklistDataArray=[]
   }
 
   renderTopMenu(buttonText){
@@ -18,6 +19,9 @@ class Blacklist{
 
     const blacklistInput = document.createElement("INPUT")
     document.body.appendChild(blacklistInput)
+
+    addButton.addEventListener('click', () => this.blacklistDataArray.push(new BlacklistedIndividual (blacklistInput.value, Date.now())))
+
   }
 }
 
@@ -27,5 +31,5 @@ blacklist1.renderTopMenu("Add to blacklist")
 
 
 
-
-//TODO zrobić dwie klasy, jedna to cała strona z metodami, druga do wrzucania pojedynczej iteracji blacklisty z textem i ID, pamiętaż, że || zwraca wartość jeżeli piersza jest falsy
+//@TODO find better ID generator, altho this shlould be sufficient for this project
+//@note pamiętać, że || zwraca wartość jeżeli piersza jest falsy, do sprawdzenia czy tablica z danymi jest pobrana z localstorage
