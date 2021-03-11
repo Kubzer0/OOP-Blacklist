@@ -33,17 +33,25 @@ class Blacklist{
     addButton.addEventListener('click', () => {
       this.blacklistDataArray.push(new BlacklistedIndividual (blacklistInput.value, Date.now()))
       console.log(this.blacklistDataArray)
-      this.renderCurrentBlacklist()
+      this.render()
     })
+  }
+
+
+  render(){
+    document.body.innerHTML= ""
+    this.renderBlacklistEntryInterface("Add to blacklist")
+    this.renderCurrentBlacklist()
+
   }
 
 }
 
 
 let blacklist1 = new Blacklist()
-blacklist1.renderBlacklistEntryInterface("Add to blacklist")
+blacklist1.render()
 
 
 
-//@TODO find better ID generator, altho this shlould be sufficient for this project, change name of renderTopMenu to somethig more fitting
+//@TODO find better ID generator, altho this shlould be sufficient for this project
 //@note pamiętać, że || zwraca wartość jeżeli piersza jest falsy, do sprawdzenia czy tablica z danymi jest pobrana z localstorage
