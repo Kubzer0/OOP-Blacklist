@@ -17,8 +17,11 @@ class Blacklist{
     document.body.appendChild(list)
     this.blacklistDataArray.map((listElement, index)=>{
       const blacklistElement = document.createElement("li")
+      const blacklistElementDeleteButton = document.createElement("button")
+      blacklistElementDeleteButton.innerHTML = "Delete element"
       blacklistElement.innerHTML= listElement.inputText
       list.appendChild(blacklistElement)
+      list.appendChild(blacklistElementDeleteButton)
     })
   }
 
@@ -32,7 +35,7 @@ class Blacklist{
 
     addButton.addEventListener('click', () => {
       this.blacklistDataArray.push(new BlacklistedIndividual (blacklistInput.value, Date.now()))
-      console.log(this.blacklistDataArray)
+      console.log(this.blacklistDataArray) //@TODO Delete this later, created for state check purposes
       this.render()
     })
   }
@@ -42,7 +45,6 @@ class Blacklist{
     document.body.innerHTML= ""
     this.renderBlacklistEntryInterface("Add to blacklist")
     this.renderCurrentBlacklist()
-
   }
 
 }
