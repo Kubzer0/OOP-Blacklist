@@ -12,6 +12,11 @@ class Blacklist{
     this.blacklistDataArray=[]
   }
 
+  deleteElement(){
+
+  }
+  
+
   renderCurrentBlacklist(){
     const list = document.createElement("ul")
     document.body.appendChild(list)
@@ -22,8 +27,14 @@ class Blacklist{
       blacklistElement.innerHTML= listElement.inputText
       list.appendChild(blacklistElement)
       list.appendChild(blacklistElementDeleteButton)
+
+      blacklistElementDeleteButton.addEventListener("click", ()=>{
+        console.log(listElement.blacklistedIndividualId)
+      }
+      )
     })
   }
+
 
   renderBlacklistEntryInterface(buttonText){
     const addButton = document.createElement("BUTTON")
