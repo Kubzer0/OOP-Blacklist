@@ -13,7 +13,7 @@ class Blacklist{
   }
 
   deleteElement(){
-
+    console.log("function called")
   }
   
 
@@ -27,11 +27,14 @@ class Blacklist{
       blacklistElement.innerHTML= listElement.inputText
       list.appendChild(blacklistElement)
       list.appendChild(blacklistElementDeleteButton)
+      
 
       blacklistElementDeleteButton.addEventListener("click", ()=>{
         console.log(listElement.blacklistedIndividualId)
-      }
-      )
+      })
+      blacklistElementDeleteButton.addEventListener("click", ()=>{
+        this.deleteElement()
+      })
     })
   }
 
