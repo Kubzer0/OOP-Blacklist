@@ -10,10 +10,17 @@ class BlacklistedIndividual{
 class Blacklist{
   constructor() {
     this.blacklistDataArray=[]
+    this.selectedElement = []
   }
 
   deleteElement(){
-    console.log("function called")
+    console.log(this.selectedElement) //delete later
+    this.blacklistDataArray.map((listElement, index)=>{
+      if (listElement.blacklistedIndividualId == this.selectedElement) {
+        this.blacklistDataArray.splice(index,1)
+      }
+    })
+    this.render()
   }
   
 
@@ -30,7 +37,7 @@ class Blacklist{
       
 
       blacklistElementDeleteButton.addEventListener("click", ()=>{
-        console.log(listElement.blacklistedIndividualId)
+        this.selectedElement = listElement.blacklistedIndividualId
       })
       blacklistElementDeleteButton.addEventListener("click", ()=>{
         this.deleteElement()
