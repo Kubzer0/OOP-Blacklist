@@ -1,7 +1,8 @@
 
 class BlacklistedIndividual{
-  constructor(inputText,blacklistedIndividualId){
-    this.inputText= inputText
+  constructor(inputText, inputPhoneNumber,blacklistedIndividualId){
+    this.inputText = inputText
+    this.inputPhoneNumber = inputPhoneNumber
     this.blacklistedIndividualId = blacklistedIndividualId
   }
 }
@@ -9,7 +10,7 @@ class BlacklistedIndividual{
 
 class Blacklist{
   constructor() {
-    this.blacklistDataArray=[]
+    this.blacklistDataArray = []
     this.selectedElement = []
   }
 
@@ -54,8 +55,11 @@ class Blacklist{
     const blacklistInput = document.createElement("INPUT")
     document.body.appendChild(blacklistInput)
 
+    const phoneNumberInput = document.createElement("INPUT")
+    document.body.appendChild(phoneNumberInput)
+
     addButton.addEventListener('click', () => {
-      this.blacklistDataArray.push(new BlacklistedIndividual (blacklistInput.value, Date.now()))
+      this.blacklistDataArray.push(new BlacklistedIndividual (blacklistInput.value, phoneNumberInput.value, Date.now()))
       console.log(this.blacklistDataArray) //@TODO Delete this later, created for state check purposes
       this.render()
     })
