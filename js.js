@@ -25,14 +25,14 @@ class Blacklist{
   }
   
 
-  renderCurrentBlacklist(){
+  renderEntireBlacklist(){
     const list = document.createElement("ul")
     document.body.appendChild(list)
     this.blacklistDataArray.map((listElement, index)=>{
       const blacklistElement = document.createElement("li")
       const blacklistElementDeleteButton = document.createElement("button")
       blacklistElementDeleteButton.innerHTML = "Delete element"
-      blacklistElement.innerHTML= listElement.inputText
+      blacklistElement.innerHTML= listElement.inputText + " "+ listElement.inputPhoneNumber
       list.appendChild(blacklistElement)
       list.appendChild(blacklistElementDeleteButton)
       
@@ -63,13 +63,22 @@ class Blacklist{
       console.log(this.blacklistDataArray) //@TODO Delete this later, created for state check purposes
       this.render()
     })
+
+    const searchButton = document.createElement("BUTTON")
+    searchButton.innerHTML= `Search`
+    document.body.appendChild(searchButton)
+
+    searchButton.addEventListener('click', ()=>{
+      this.render() //@TODO render only filtered elements
+    })
+
   }
 
 
   render(){
     document.body.innerHTML= ""
     this.renderBlacklistEntryInterface("Add to blacklist")
-    this.renderCurrentBlacklist()
+    this.renderEntireBlacklist()
   }
 
 }
