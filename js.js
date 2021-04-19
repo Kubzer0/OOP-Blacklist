@@ -25,7 +25,7 @@ class Blacklist{
   }
 
   searchByInputs(blacklistInput,phoneNumberInput){
-    const filteredBlacklistDataArray = this.blacklistDataArray.filter((listElement) => listElement.inputText === blacklistInput || listElement.inputPhoneNumber === phoneNumberInput ) //@todo add filter for phonenumberinput, polish out incomplete search.
+    const filteredBlacklistDataArray = this.blacklistDataArray.filter((listElement) => listElement.inputText === blacklistInput || listElement.inputPhoneNumber === phoneNumberInput ) //@TOD block emty field entires 
     document.body.innerHTML= ""
     this.renderBlacklistEntryInterface("Add to blacklist")
     this.renderBlacklist(filteredBlacklistDataArray)
