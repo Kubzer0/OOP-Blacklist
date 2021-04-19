@@ -25,15 +25,15 @@ class Blacklist{
   }
 
   searchByInputs(blacklistInput,phoneNumberInput){
-    const filteredBlacklistDataArray = this.blacklistDataArray.filter((listElement) => listElement.inputText === blacklistInput) //@todo add filter for phonenumberinput, polish out incomplete search.
+    const filteredBlacklistDataArray = this.blacklistDataArray.filter((listElement) => listElement.inputText === blacklistInput || listElement.inputPhoneNumber === phoneNumberInput ) //@todo add filter for phonenumberinput, polish out incomplete search.
     document.body.innerHTML= ""
     this.renderBlacklistEntryInterface("Add to blacklist")
-    this.renderEntireBlacklist(filteredBlacklistDataArray)
+    this.renderBlacklist(filteredBlacklistDataArray)
     console.log(filteredBlacklistDataArray)
   }
   
 
-  renderEntireBlacklist(dataArray){ 
+  renderBlacklist(dataArray){ 
     const currentDataArrayRender = dataArray || this.blacklistDataArray
     const list = document.createElement("ul")
     document.body.appendChild(list)
@@ -87,7 +87,7 @@ class Blacklist{
   render(){
     document.body.innerHTML= ""
     this.renderBlacklistEntryInterface("Add to blacklist")
-    this.renderEntireBlacklist()
+    this.renderBlacklist()
   }
 
 }
