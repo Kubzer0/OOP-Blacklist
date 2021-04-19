@@ -23,12 +23,21 @@ class Blacklist{
     })
     this.render()
   }
+
+  searchByInputs(blacklistInput,phoneNumberInput){
+    const filteredBlacklistDataArray = this.blacklistDataArray.filter((listElement) => listElement.inputText === blacklistInput) //@todo add filter for phonenumberinput, polish out incomplete search.
+    document.body.innerHTML= ""
+    this.renderBlacklistEntryInterface("Add to blacklist")
+    this.renderEntireBlacklist(filteredBlacklistDataArray)
+    console.log(filteredBlacklistDataArray)
+  }
   
 
-  renderEntireBlacklist(){
+  renderEntireBlacklist(dataArray){ 
+    const currentDataArrayRender = dataArray || this.blacklistDataArray
     const list = document.createElement("ul")
     document.body.appendChild(list)
-    this.blacklistDataArray.map((listElement, index)=>{
+    currentDataArrayRender.map((listElement, index)=>{
       const blacklistElement = document.createElement("li")
       const blacklistElementDeleteButton = document.createElement("button")
       blacklistElementDeleteButton.innerHTML = "Delete element"
@@ -69,7 +78,7 @@ class Blacklist{
     document.body.appendChild(searchButton)
 
     searchButton.addEventListener('click', ()=>{
-      this.render() //@TODO render only filtered elements
+      this.searchByInputs(blacklistInput.value, phoneNumberInput.value) 
     })
 
   }
